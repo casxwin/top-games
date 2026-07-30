@@ -3,30 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GiftHub</title>
+    <title>TikTokSlots | Premium Access</title>
     <style>
+        /* Цветовая палитра: глубокий черный и благородное золото */
         :root {
-            --bg-main: #111827;
-            --bg-card: #1f2937;
-            --text-main: #f3f4f6;
-            --text-muted: #9ca3af;
-            --accent-orange: #f97316;
-            --accent-yellow: #fbbf24;
-            --tg-blue: #0ea5e9;
-            --tg-card-bg: rgba(255, 255, 255, 0.15);
+            --bg-black: #0a0a0a;
+            --bg-card: #141414;
+            --gold-light: #f9d976;
+            --gold-main: #d4af37;
+            --gold-dark: #aa8c2c;
+            --text-main: #f5f5f5;
+            --text-muted: #888888;
+            --border-color: #2a2a2a;
         }
 
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
 
         body {
-            background-color: var(--bg-main);
+            background-color: var(--bg-black);
             color: var(--text-main);
-            line-height: 1.5;
+            line-height: 1.6;
             padding: 2rem 1rem;
         }
 
@@ -35,253 +36,226 @@
             margin: 0 auto;
         }
 
-        /* --- Header --- */
+        /* --- Шапка сайта --- */
         .header {
             text-align: center;
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
         }
 
         .logo {
-            font-size: 2.5rem;
+            font-size: 3rem;
             font-weight: 900;
-            background: linear-gradient(to right, #fca5a5, #f59e0b);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: linear-gradient(to right, var(--gold-light), var(--gold-dark));
             -webkit-background-clip: text;
             color: transparent;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
         }
 
         .subtitle {
             font-size: 1.1rem;
+            color: var(--gold-main);
             margin-bottom: 1.5rem;
+            font-weight: 500;
         }
 
         .warning-box {
-            background-color: #2e1f27;
-            border-left: 4px solid #ef4444;
-            padding: 1rem;
-            border-radius: 0.25rem;
-            font-size: 0.9rem;
+            background-color: #1a1a1a;
+            border: 1px solid var(--gold-dark);
+            color: var(--text-muted);
+            padding: 1.2rem 1.5rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
             display: inline-block;
-            margin-bottom: 1.5rem;
-            color: #f3f4f6;
-        }
-
-        .features-bar {
-            background-color: #1f2937;
-            border: 1px solid #374151;
-            padding: 1rem;
-            border-radius: 0.5rem;
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            font-size: 0.95rem;
             margin-bottom: 2rem;
-        }
-        
-        .features-bar span {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+            text-align: left;
+            max-width: 700px;
+            line-height: 1.5;
         }
 
-        .features-bar span i {
-            color: var(--accent-yellow);
-            font-style: normal;
+        .warning-box strong {
+            color: var(--gold-main);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 0.5rem;
         }
 
-        /* --- Buttons --- */
-        .btn {
+        /* --- Анимация пульсации для кнопок --- */
+        @keyframes pulse-gold {
+            0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(212, 175, 55, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+        }
+
+        .btn-gold {
+            background: linear-gradient(135deg, var(--gold-dark), var(--gold-light), var(--gold-dark));
+            background-size: 200% 200%;
+            color: #000;
+            text-decoration: none;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 1rem;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 0.5rem;
-            background: linear-gradient(to right, #f97316, #f59e0b);
-            color: #fff;
-            text-decoration: none;
-            padding: 0.75rem 2rem;
-            border-radius: 2rem;
-            font-weight: 600;
-            transition: transform 0.2s, box-shadow 0.2s;
+            gap: 10px;
             border: none;
             cursor: pointer;
+            width: 100%;
         }
 
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 15px -3px rgba(249, 115, 22, 0.4);
+        .btn-gold:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+            background-position: 100% 0;
         }
 
-        .btn-center {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 3rem;
+        .btn-pulse {
+            animation: pulse-gold 2s infinite;
+            width: auto;
+            padding: 1rem 3rem;
         }
 
-        /* --- Telegram Section --- */
+        /* --- Блок Telegram --- */
         .tg-section {
-            background-color: var(--tg-blue);
-            border-radius: 1rem;
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
             padding: 2.5rem;
-            margin-bottom: 3rem;
-            box-shadow: 0 10px 25px rgba(14, 165, 233, 0.2);
+            margin-bottom: 3.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
         }
 
-        .tg-header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
+        .tg-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+            z-index: 0;
+            pointer-events: none;
         }
 
-        .tg-icon {
-            width: 50px;
-            height: 50px;
-            background-color: #fff;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--tg-blue);
-            font-size: 1.5rem;
-            font-weight: bold;
+        .tg-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .tg-logo {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tg-title {
+            font-size: 2rem;
+            color: var(--text-main);
+            margin-bottom: 0.5rem;
         }
 
         .tg-desc {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 1.5rem auto;
             font-size: 1.05rem;
-            margin-bottom: 2rem;
-            max-width: 800px;
         }
 
-        .tg-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin-bottom: 2rem;
+        .tg-features {
+            list-style: none;
+            margin: 0 auto 2rem auto;
+            max-width: 450px;
+            text-align: left;
+            color: var(--text-main);
+            font-size: 0.95rem;
         }
 
-        .tg-card {
-            background-color: var(--tg-card-bg);
-            padding: 1.25rem;
-            border-radius: 0.75rem;
-        }
-
-        .tg-card h4 {
+        .tg-features li {
+            margin-bottom: 0.8rem;
             display: flex;
-            align-items: center;
-            gap: 0.5rem;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .tg-features li::before {
+            content: "✓";
+            color: var(--gold-main);
+            font-weight: bold;
             font-size: 1.1rem;
-            margin-bottom: 0.75rem;
         }
 
-        .tg-card h4 i {
-            color: var(--accent-yellow);
-            font-style: normal;
-        }
-
-        .tg-card p {
-            font-size: 0.9rem;
-            opacity: 0.9;
-        }
-
-        .tg-footer {
-            text-align: center;
-        }
-
-        .tg-footer .stats {
-            display: block;
-            margin-top: 1rem;
-            font-size: 0.9rem;
-        }
-        
-        .tg-footer .stats i {
-            color: var(--accent-yellow);
-            font-style: normal;
-        }
-
-        /* --- Games Grid --- */
+        /* --- Сетка Игр --- */
         .games-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
+            gap: 2rem;
             margin-bottom: 3rem;
         }
 
         .game-card {
             background-color: var(--bg-card);
-            border-radius: 0.75rem;
-            border: 1px solid #374151;
-            overflow: hidden;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.8rem;
+            transition: all 0.3s ease;
             display: flex;
             flex-direction: column;
+            align-items: center;
+            text-align: center;
         }
 
-        .game-header {
-            padding: 1.5rem;
-            /* Временно темный фон. Сюда можно добавить картинки, раскомментировав строку ниже */
-            /* background-image: url('ссылка_на_картинку'); background-size: cover; */
-            background-color: #374151; 
-            border-bottom: 1px solid #4b5563;
+        .game-card:hover {
+            border-color: var(--gold-main);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
-        .game-header h3 {
-            color: var(--accent-yellow);
-            font-size: 1.25rem;
-            margin-bottom: 0.25rem;
+        .game-title {
+            font-size: 1.4rem;
+            color: var(--text-main);
+            margin-bottom: 0.3rem;
         }
 
-        .game-header p {
-            font-size: 0.85rem;
+        .game-badge {
+            color: var(--gold-main);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
             margin-bottom: 1rem;
-            color: #d1d5db;
-        }
-
-        .game-body {
-            padding: 1.5rem;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
+            font-weight: 600;
         }
 
         .game-desc {
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-
-        .game-features {
-            list-style: none;
-            margin-top: auto;
-        }
-
-        .game-features li {
-            font-size: 0.85rem;
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: flex-start;
-            gap: 0.5rem;
-        }
-
-        .game-features li::before {
-            content: "★";
-            color: var(--accent-yellow);
-        }
-
-        /* --- Footer --- */
-        .footer {
-            border-top: 1px solid #374151;
-            padding-top: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            font-size: 0.8rem;
             color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+            flex-grow: 1;
         }
 
-        .badge-18 {
-            background-color: #ef4444;
-            color: white;
-            padding: 0.25rem 0.5rem;
-            border-radius: 0.25rem;
-            font-weight: bold;
+        /* --- Подвал --- */
+        .footer {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            line-height: 1.6;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .logo { font-size: 2.2rem; }
+            .tg-section { padding: 1.5rem; }
+            .tg-title { font-size: 1.5rem; }
+            .btn-pulse { width: 100%; padding: 1rem; }
         }
     </style>
 </head>
@@ -291,62 +265,36 @@
     
     <!-- Шапка сайта -->
     <header class="header">
-        <h1 class="logo">GiftHub</h1>
-        <p class="subtitle">Лицензионные казино игры с высокими выплатами и быстрыми<br>выигрышами</p>
+        <h1 class="logo">TikTokSlots</h1>
+        <p class="subtitle">Элитные слоты и алгоритмы с максимальной отдачей</p>
         
         <div class="warning-box">
-            <strong>Внимание:</strong> Азартные игры могут вызывать зависимость. Играйте ответственно. Только для лиц старше 18 лет.
-        </div>
-
-        <div class="features-bar">
-            <span><i>🛡</i> Лицензионные игры</span>
-            <span><i>🔒</i> Защищенные платежи</span>
-            <span><i>🌟</i> Честная игра</span>
+            <strong>⚠️ Информация и правила платформы:</strong>
+            1. Перед запуском любой игры обязательно <b>отключайте VPN</b> для корректной работы багов и начисления бонусов.<br>
+            2. Азартные игры могут вызывать зависимость. Помните, что слоты — это способ развлечения, а не гарантированный метод заработка. Играйте ответственно и только на те средства, которые можете позволить себе потерять.<br>
+            3. Доступ к материалам сайта разрешен строго для лиц старше 18 лет (18+).
         </div>
     </header>
 
-    <div class="btn-center">
-        <!-- ССЫЛКА НА ТЕЛЕГРАМ ДЛЯ ВЕРХНЕЙ КНОПКИ -->
-        <a href="https://one-vv2457.com/?open=register&p=8ofw" class="btn">🎮 Все игры</a>
-    </div>
-
-    <!-- Блок Telegram -->
+    <!-- Блок Telegram (Премиум) -->
     <section class="tg-section">
-        <div class="tg-header">
-            <div class="tg-icon">✈</div>
-            <div>
-                <h2>GameTikToka Канал</h2>
-                <p>Только сливные слоты и проверенные стратегии!</p>
-            </div>
-        </div>
-        
-        <p class="tg-desc">
-            Присоединяйтесь к самому горячему Telegram каналу о казино играх! Мы показываем реальные выигрыши, делимся рабочими стратегиями и находим самые сливные слоты. Каждый день — новые победы!
-        </p>
+        <div class="tg-content">
+            <div class="tg-logo">💎</div>
+            <h2 class="tg-title">CAS_x_WIN</h2>
+            <p class="tg-desc">
+                Закрытый клуб победителей. Мы не просто крутим слоты — мы используем математику и алгоритмы.
+            </p>
+            
+            <ul class="tg-features">
+                <li>Ежедневные рабочие схемы для топовых слотов</li>
+                <li>Приватные промокоды на депозиты и щедрые фриспины</li>
+                <li>Открытый чат игроков: делимся заносами и опытом</li>
+                <li>Только проверенные игры с максимальным RTP (отдачей)</li>
+            </ul>
 
-        <div class="tg-grid">
-            <div class="tg-card">
-                <h4><i>⚡</i> Ежедневные сливы</h4>
-                <p>Показываем реальные выигрыши с казино каждый день. Скрины, видео, факты.</p>
-            </div>
-            <div class="tg-card">
-                <h4><i>📈</i> Рабочие стратегии</h4>
-                <p>Проверенные методы игры, которые действительно увеличивают шансы на победу.</p>
-            </div>
-            <div class="tg-card">
-                <h4><i>💎</i> Эксклюзивные бонусы</h4>
-                <p>Только у нас — специальные промокоды, фриспины и повышенные кэшбэки.</p>
-            </div>
-            <div class="tg-card">
-                <h4><i>👥</i> Живое сообщество</h4>
-                <p>Общайтесь с другими игроками, делитесь опытом и находите напарников.</p>
-            </div>
-        </div>
-
-        <div class="tg-footer">
-            <!-- ССЫЛКА НА ТЕЛЕГРАМ -->
-            <a href="https://t.me/cas_xx" class="btn">✈ Подписаться на канал</a>
-            <span class="stats"><i>👥</i> Уже с нами:... активных игроков</span>
+            <a href="https://t.me/cas_xx" class="btn-gold btn-pulse" target="_blank" rel="noopener">
+                🔓 Забрать доступ к каналу
+            </a>
         </div>
     </section>
 
@@ -355,121 +303,58 @@
         
         <!-- Игра 1 -->
         <div class="game-card">
-            <div class="game-header">
-                <h3>MineDrop</h3>
-                <p>Захватывающая добыча сокровищ</p>
-                <!-- ССЫЛКА НА ИГРУ 1 -->
-                <a href="https://one-vv2457.com/?open=register&p=8ofw" class="btn" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Играть сейчас</a>
-            </div>
-            <div class="game-body">
-                <p class="game-desc">Спускайтесь в шахты и добывайте редкие сокровища! Избегайте мин и собирайте драгоценные камни.</p>
-                <ul class="game-features">
-                    <li>Динамичная механика выбора клеток</li>
-                    <li>Множители до x1000</li>
-                    <li>Различные типы полезных ископаемых</li>
-                    <li>Бонусные уровни с повышенными ставками</li>
-                </ul>
-            </div>
+            <h3 class="game-title">MineDrop</h3>
+            <span class="game-badge">Топ Выплат</span>
+            <p class="game-desc">Спускайся в шахты и ищи кристаллы. Аккуратно обходи мины, чтобы умножить свою начальную ставку до x1000.</p>
+            <a href="https://one-vv0199.com/?p=8ofw" class="btn-gold" target="_blank">Играть сейчас</a>
         </div>
 
         <!-- Игра 2 -->
         <div class="game-card">
-            <div class="game-header">
-                <h3>TowerRush</h3>
-                <p>Быстрая игра с растущими множителями</p>
-                <!-- ССЫЛКА НА ИГРУ 2 -->
-                <a href="https://w-one932049.life/v3/5768/tower-rush?p=2ybp" class="btn" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Играть сейчас</a>
-            </div>
-            <div class="game-body">
-                <p class="game-desc">Стройте башни и увеличивайте свой выигрыш с каждым уровнем! Максимальный множитель x1000.</p>
-                <ul class="game-features">
-                    <li>Высокие коэффициенты выплат</li>
-                    <li>Бонусные уровни с множителями</li>
-                    <li>Быстрые раунды</li>
-                </ul>
-            </div>
+            <h3 class="game-title">TowerRush</h3>
+            <span class="game-badge">Быстрые Раунды</span>
+            <p class="game-desc">Строй башню и забирай кэш на каждом новом этаже. Чем выше ты заберешься, тем жестче будет итоговый множитель.</p>
+            <a href="https://w-one932049.life/v3/5768/tower-rush?p=2ybp" class="btn-gold" target="_blank">Играть сейчас</a>
         </div>
 
         <!-- Игра 3 -->
         <div class="game-card">
-            <div class="game-header">
-                <h3>Aviamaster</h3>
-                <p>Авиа-слот с джекпотом</p>
-                <!-- ССЫЛКА НА ИГРУ 3 -->
-                <a href="https://w-one932049.life/v3/aviator-fire?p=f80f" class="btn" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Играть сейчас</a>
-            </div>
-            <div class="game-body">
-                <p class="game-desc">Покорите небо и выиграйте прогрессивный джекпот! Бонусные полеты увеличивают ваши шансы.</p>
-                <ul class="game-features">
-                    <li>Прогрессивный джекпот</li>
-                    <li>Бонусные раунды с бесплатными спинами</li>
-                    <li>Высокая волатильность</li>
-                </ul>
-            </div>
+            <h3 class="game-title">Aviamaster</h3>
+            <span class="game-badge">Высокий Множитель</span>
+            <p class="game-desc">Классическая и любимая краш-механика. Следи за радарами и успей забрать свой выигрыш до того, как самолет улетит.</p>
+            <a href="https://w-one932049.life/v3/aviator-fire?p=f80f" class="btn-gold" target="_blank">Играть сейчас</a>
         </div>
 
         <!-- Игра 4 -->
         <div class="game-card">
-            <div class="game-header">
-                <h3>Ice Fishing</h3>
-                <p>Расслабляющая игра с большими уловами</p>
-                <!-- ССЫЛКА НА ИГРУ 4 -->
-                <a href="https://w-one932049.life/v3/6387/ice-fishing-wheel?p=1ads" class="btn" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Играть сейчас</a>
-            </div>
-            <div class="game-body">
-                <p class="game-desc">Поймайте золотую рыбку и сорвите куш! Специальные бонусы за редкие виды рыб.</p>
-                <ul class="game-features">
-                    <li>Уникальная механика рыбалки</li>
-                    <li>Коллекционные бонусы</li>
-                    <li>Расслабляющий геймплей</li>
-                </ul>
-            </div>
+            <h3 class="game-title">Ice Fishing</h3>
+            <span class="game-badge">Скрытые Бонусы</span>
+            <p class="game-desc">Спокойный геймплей, но с дикими иксами. Лови редкую рыбу подо льдом и активируй прибыльные бонус-раунды.</p>
+            <a href="https://w-one932049.life/v3/6387/ice-fishing-wheel?p=1ads" class="btn-gold" target="_blank">Играть сейчас</a>
         </div>
 
         <!-- Игра 5 -->
         <div class="game-card">
-            <div class="game-header">
-                <h3>Doodle Crash</h3>
-                <p>Прыгайте выше и собирайте бонусы!</p>
-                <!-- ССЫЛКА НА ИГРУ 5 -->
-                <a href="https://one-vv2457.com/betting?open=register&p=bpeh" class="btn" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Играть сейчас</a>
-            </div>
-            <div class="game-body">
-                <p class="game-desc">Прыгайте по платформам, уворачивайтесь от препятствий и собирайте множители! Динамичный геймплей с растущим кушем.</p>
-                <ul class="game-features">
-                    <li>Динамичная механика прыжков</li>
-                    <li>Множители до x5000</li>
-                    <li>Бонусные платформы с ускорителями</li>
-                    <li>Рекорды и таблица лидеров</li>
-                </ul>
-            </div>
+            <h3 class="game-title">Doodle Crash</h3>
+            <span class="game-badge">Хит Недели</span>
+            <p class="game-desc">Прыгай по платформам всё выше и уворачивайся от преград. Динамичная игра с растущим кушем на каждом уровне.</p>
+            <a href="https://one-vv0199.com/casino/play/v_barbarabang:doodlecrash&p=bnwn" class="btn-gold" target="_blank">Играть сейчас</a>
         </div>
 
         <!-- Игра 6 -->
         <div class="game-card">
-            <div class="game-header">
-                <h3>Falling Pickaxe</h3>
-                <p>Падающая кирка — лови момент!</p>
-                <!-- ССЫЛКА НА ИГРУ 6 -->
-                <a href="https://one-vv2457.com/casino/list?open=register&p=bnwn" class="btn" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Играть сейчас</a>
-            </div>
-            <div class="game-body">
-                <p class="game-desc">Управляйте падающей киркой, собирайте сокровища и избегайте препятствий! Чем дольше вы держитесь, тем выше множитель.</p>
-                <ul class="game-features">
-                    <li>Динамичный геймплей с падением</li>
-                    <li>Множители до x10000</li>
-                    <li>Сбор бонусных предметов</li>
-                    <li>Таблица рекордов</li>
-                </ul>
-            </div>
+            <h3 class="game-title">Falling Pickaxe</h3>
+            <span class="game-badge">Эксклюзив</span>
+            <p class="game-desc">Лови момент! Управляй падающей киркой, собирай золотые слитки и сокровища в бесконечном динамичном падении.</p>
+            <a href="https://one-vv2457.com/casino/play/v_pixmove:fallingpickaxe?cda_id=77748d0687395dc5cd4a23efd1371391&redirect_data=eyJ0eXBlIjoiYXV0aCIsInJlZGlyZWN0U3RhcnRUaW1lIjoxNzg1MzkyOTcwNzQyLCJkb21haW5DaGVja0R1cmF0aW9uIjoyMjN9&cda_arg=DPccLK18Wr0Wkb8ab9fTfVPfjG6E50CdH3HNZ7RYGIYlNuk2h-baDCSfVEmtCQ4HqzXM6dX3dKIOw00kaZMHdvGibHeLpE2UkxORD0fIbS9ZY4DzWW1AH4dQeXaaMRetHS_jz1MPllE9zZaM60N6Jw7NUbKJRbLE1LWbeVthVG8kTqguaPGinyDYVA1GrbOgjorI7z9CANc-rvrhN5ZtruXJIFE5EfwQNPZ_63ytMxvVQ8CuAl7eocLHGd-qMYzI9ZJoNfkcOPp1vYpoEo0ZXwQxa6OiC-uUvzQyaTPll64&p=8ofw" class="btn-gold" target="_blank">Играть сейчас</a>
         </div>
 
     </section>
 
     <!-- Подвал сайта -->
     <footer class="footer">
-        <span class="badge-18">▲ 18+</span>
-        <p>© 2023 GiftHub. Лицензионные азартные игры. Только для лиц старше 18 лет. Играйте ответственно.</p>
+        <p>🔞 TikTokSlots Premium © 2026. Все права защищены.<br>
+        Материалы на сайте носят ознакомительный характер. Играйте ответственно.</p>
     </footer>
 
 </div>
