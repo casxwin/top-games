@@ -169,21 +169,11 @@
             box-shadow: 0 8px 30px rgba(16, 185, 129, 0.1);
         }
 
-        .promo-header {
-            font-size: 1.15rem;
-            font-weight: 900;
-            color: #fff;
-            margin-bottom: 6px;
-        }
-
-        .promo-header span {
-            color: var(--accent-green);
-        }
-
         .promo-text {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            margin-bottom: 16px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 14px;
             line-height: 1.4;
         }
 
@@ -196,7 +186,7 @@
             color: #ffffff;
             font-size: 1.25rem;
             font-weight: 900;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             padding: 12px 24px;
             border-radius: 14px;
             cursor: pointer;
@@ -395,10 +385,9 @@
 
     <!-- Блок промокода -->
     <div class="promo-box">
-        <div class="promo-header">🎁 Бонус <span>275% + 280 FS</span></div>
-        <div class="promo-text">Скопируй промокод одним нажатием и введи при регистрации, чтобы активировать максимальный бонус на депозит!</div>
+        <div class="promo-text">Вводи промик и получай бонусы 👇</div>
         <div class="promo-action" onclick="copyPromo()">
-            CASIX <span class="promo-icon">📋</span>
+            1winxcas <span class="promo-icon">📋</span>
         </div>
     </div>
 
@@ -517,8 +506,8 @@
 <!-- Скрипт для копирования -->
 <script>
     function copyPromo() {
-        // Копируем текст CASIX в буфер обмена
-        navigator.clipboard.writeText("CASIX").then(() => {
+        // Копируем новый промокод 1winxcas в буфер обмена
+        navigator.clipboard.writeText("1winxcas").then(() => {
             // Показываем уведомление
             const toast = document.getElementById("toast");
             toast.classList.add("show");
